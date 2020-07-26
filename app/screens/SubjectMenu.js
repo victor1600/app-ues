@@ -32,11 +32,11 @@ const SubjectMenu = () => {
       </View>
       <View style={styles.subjectRow}>
         <AppCircleIcon name="Lenguaje" imageIcon={subjects[2].imageIcon} />
-        <AppCircleIcon name="Quimica" imageIcon={subjects[3].imageIcon} />
+        <AppCircleIcon name="Química" imageIcon={subjects[3].imageIcon} />
       </View>
       <View style={styles.subjectRow}>
-        <AppCircleIcon name="Fisica" imageIcon={subjects[4].imageIcon} />
-        <AppCircleIcon name="Biologia" imageIcon={subjects[5].imageIcon} />
+        <AppCircleIcon name="Física" imageIcon={subjects[4].imageIcon} />
+        <AppCircleIcon name="Biología" imageIcon={subjects[5].imageIcon} />
       </View>
       {/* </Screen> */}
     </View>
