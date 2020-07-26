@@ -8,11 +8,13 @@ const AppCircleIcon = ({ name = "Matemática", imageIcon }) => {
   };
   return (
     <TouchableOpacity onPress={onPress}>
-      <View style={styles.container}>
-        <View style={styles.circle}>
-          <Image style={styles.image} source={imageIcon} />
+      <View style={styles.test}>
+        <View style={styles.container}>
+          <View style={styles.circle}>
+            <Image style={styles.image} source={imageIcon} />
+          </View>
+          <Text style={styles.text}>{name}</Text>
         </View>
-        <Text style={styles.text}>{name}</Text>
       </View>
     </TouchableOpacity>
   );
@@ -30,13 +32,20 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   container: {
-    marginHorizontal: 40,
+    marginRight: "5%",
+    marginLeft: "15%",
     alignItems: "center",
   },
 
   image: {
     width: 80,
     height: 80,
+  },
+  test: {
+    // justifyContent: "center",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
   },
   text: {
     fontSize: 18,
