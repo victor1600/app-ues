@@ -22,6 +22,7 @@
     "web": {
       "favicon": "./assets/favicon.png"
     },
-    "description": "Proyecto sobre cuestionarios de estudio para examen de admision de Universidad de El Salvador."
+    "description": "Proyecto sobre cuestionarios de estudio para examen de admision de Universidad de El Salvador.",
+    "githubUrl": "https://github.com/victor1600/app-ues"
   }
 }
