@@ -31,11 +31,6 @@ function MainMenu(props) {
         data={categories}
         keyExtractor={(category) => category.id.toString()}
         renderItem={({ item }) => (
-          // <Card
-          //   title={item.title}
-          //   subTitle={"$" + item.price}
-          //   image={item.image}
-          // />
           <AppMainMenuElement
             title={item.title}
             subTitle={item.subTitle}

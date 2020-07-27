@@ -12,11 +12,7 @@ import MainMenu from "./app/screens/MainMenu";
 export default function App() {
   return (
     <ThemeProvider theme={theme}>
-      {/* <LoginScreen /> */}
-      <MainMenu />
-      {/* <SubjectMenu />
-      <Question /> */}
-      {/* <AppCardTemplate /> */}
+      <SubjectMenu />
     </ThemeProvider>
   );
 }
