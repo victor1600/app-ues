@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, Image } from "react-native";
+import { StyleSheet, Image, Alert } from "react-native";
 import Screen from "./Screen";
 import FormField from "../components/forms/FormField";
 import * as Yup from "yup";
@@ -11,11 +11,20 @@ const validationSchema = Yup.object().shape({
     .required("Ingrese usuario")
     .email("Ingrese un correo valido")
     .label("Email"),
-  password: Yup.string()
-    .required("Ingrese contraseña")
-    .min(4)
-    .label("Password"),
+  password: Yup.string().required("Ingrese contraseña").label("Password"),
 });
+
+const handleSubmit = (value) => {
+  console.log(value);
+  if (value.email !== "ga13016@ues.edu.sv" || value.password !== "poly7659") {
+    Alert.alert(
+      "Credenciales Erróneas",
+      "Por favor inténtelo de nuevo.",
+      [{ text: "OK", onPress: () => console.log("OK Pressed") }],
+      { cancelable: false }
+    );
+  }
+};
 
 const LoginScreen = () => {
   return (
@@ -23,7 +32,7 @@ const LoginScreen = () => {
       <Image style={styles.logo} source={require("../assets/minerva2.png")} />
       <AppForm
         initialValues={{ email: "", password: "" }}
-        onSubmit={(values) => console.log(values)}
+        onSubmit={handleSubmit}
         validationSchema={validationSchema}
       >
         <FormField

@@ -6,13 +6,16 @@ import { ThemeProvider } from "react-native-elements";
 import SubjectMenu from "./app/screens/SubjectMenu";
 import AppCardTemplate from "./app/components/AppCardTemplate";
 import Question from "./app/screens/Question";
+import AppMainMenuElement from "./app/components/AppMainMenuElement";
+import MainMenu from "./app/screens/MainMenu";
 
 export default function App() {
   return (
     <ThemeProvider theme={theme}>
       {/* <LoginScreen /> */}
-      {/* <SubjectMenu /> */}
-      <Question />
+      <MainMenu />
+      {/* <SubjectMenu />
+      <Question /> */}
       {/* <AppCardTemplate /> */}
     </ThemeProvider>
   );
