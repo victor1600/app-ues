@@ -3,14 +3,17 @@ import React from "react";
 import LoginScreen from "./app/screens/LoginScreen";
 import theme from "./app/config/ThemeObject";
 import { ThemeProvider } from "react-native-elements";
-import AppCircleIcon from "./app/components/AppCircleIcon";
 import SubjectMenu from "./app/screens/SubjectMenu";
+import AppCardTemplate from "./app/components/AppCardTemplate";
+import Question from "./app/screens/Question";
 
 export default function App() {
   return (
     <ThemeProvider theme={theme}>
       {/* <LoginScreen /> */}
-      <SubjectMenu />
+      {/* <SubjectMenu /> */}
+      <Question />
+      {/* <AppCardTemplate /> */}
     </ThemeProvider>
   );
 }
