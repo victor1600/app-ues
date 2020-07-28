@@ -24,19 +24,19 @@ export default AppCircleIcon;
 
 const styles = StyleSheet.create({
   circle: {
-    // backgroundColor: "#DAD8D6",
+    backgroundColor: "#F1EFED",
     width: 100,
     height: 100,
     borderRadius: 50,
-    borderColor: "#DAD8D6",
-    borderWidth: 1,
+    // borderColor: "#DAD8D6",
+    // borderWidth: 1,
     alignItems: "center",
     justifyContent: "center",
-    overflow: "hidden",
+    // overflow: "hidden",
   },
   container: {
-    marginRight: "5%",
-    marginLeft: "15%",
+    marginRight: "10%",
+    marginLeft: "8%",
     alignItems: "center",
   },
 

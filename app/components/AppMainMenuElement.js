@@ -10,9 +10,9 @@ import {
 } from "react-native";
 import AppCardTemplate from "./AppCardTemplate";
 
-function AppMainMenuElement({ imageIcon, subTitle, title }) {
+function AppMainMenuElement({ imageIcon, subTitle, title, onPress }) {
   return (
-    <TouchableOpacity>
+    <TouchableOpacity onPress={onPress}>
       <View style={styles.container}>
         <AppCardTemplate>
           <View style={styles.rowContainer}>

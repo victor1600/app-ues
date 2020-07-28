@@ -1,27 +1,31 @@
 import React from "react";
-import { View, StyleSheet, FlatList } from "react-native";
+import { StyleSheet, FlatList } from "react-native";
 import Screen from "./Screen";
 import AppMainMenuElement from "../components/AppMainMenuElement";
+import routes from "../navigation/routes";
 
-function MainMenu(props) {
+function MainMenu({ navigation }) {
   const categories = [
     {
       id: 1,
       title: "Materias",
       subTitle: "Este es el modulo de materias.",
       image: require("../assets/school.png"),
+      targetScreen: routes.SUBJECT_MENU,
     },
     {
       id: 2,
       title: "Examenes",
       subTitle: "Este es el modulo de examenes.",
       image: require("../assets/exam.png"),
+      targetScreen: routes.SUBJECT_MENU,
     },
     {
       id: 3,
       title: "Estadisticas",
       subTitle: "Este es el modulo de estadisticas.",
       image: require("../assets/chart.png"),
+      targetScreen: routes.SUBJECT_MENU,
     },
   ];
 
@@ -35,6 +39,7 @@ function MainMenu(props) {
             title={item.title}
             subTitle={item.subTitle}
             imageIcon={item.image}
+            onPress={() => navigation.navigate(item.targetScreen)}
           />
         )}
       />

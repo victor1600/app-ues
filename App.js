@@ -1,18 +1,19 @@
-import { StyleSheet, Text, View } from "react-native";
 import React from "react";
-import LoginScreen from "./app/screens/LoginScreen";
+import { NavigationContainer } from "@react-navigation/native";
+
 import theme from "./app/config/ThemeObject";
 import { ThemeProvider } from "react-native-elements";
 import SubjectMenu from "./app/screens/SubjectMenu";
-import AppCardTemplate from "./app/components/AppCardTemplate";
-import Question from "./app/screens/Question";
-import AppMainMenuElement from "./app/components/AppMainMenuElement";
 import MainMenu from "./app/screens/MainMenu";
+import navigationTheme from "./app/navigation/navigationTheme";
+import MainNavigator from "./app/navigation/MainNavigator";
 
 export default function App() {
   return (
     <ThemeProvider theme={theme}>
-      <SubjectMenu />
+      <NavigationContainer theme={navigationTheme}>
+        <MainNavigator />
+      </NavigationContainer>
     </ThemeProvider>
   );
 }

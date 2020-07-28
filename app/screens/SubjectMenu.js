@@ -46,6 +46,6 @@ const styles = StyleSheet.create({
   },
   subjectRow: {
     flexDirection: "row",
-    marginTop: 40,
+    marginTop: 20,
   },
 });
