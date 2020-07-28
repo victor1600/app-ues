@@ -4,6 +4,7 @@ import MainMenu from "../screens/MainMenu";
 import SubjectMenu from "../screens/SubjectMenu";
 import colors from "../config/colors";
 import LoginScreen from "../screens/LoginScreen";
+import Question from "../screens/Question";
 
 const Stack = createStackNavigator();
 
@@ -28,6 +29,11 @@ const MainNavigator = () => (
       name="SubjectMenu"
       component={SubjectMenu}
       options={{ title: "Materias" }}
+    />
+    <Stack.Screen
+      name="Question"
+      component={Question}
+      options={{ title: "Prueba" }}
     />
   </Stack.Navigator>
 );

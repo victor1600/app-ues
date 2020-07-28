@@ -19,7 +19,7 @@ const LoginScreen = () => {
   const navigator = useNavigation();
   const handleSubmit = (value) => {
     console.log(value);
-    if (value.email !== "ga13016@ues.edu.sv" || value.password !== "poly7659") {
+    if (value.email !== "victor@gmail.com" || value.password !== "prueba") {
       Alert.alert(
         "Credenciales Erróneas",
         "Por favor inténtelo de nuevo.",

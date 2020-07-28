@@ -2,10 +2,7 @@ import React from "react";
 import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
 import { ThemeContext } from "react-native-elements";
 
-const AppCircleIcon = ({ name = "Matemática", imageIcon }) => {
-  const onPress = () => {
-    console.log("pressed");
-  };
+const AppCircleIcon = ({ name = "Matemática", imageIcon, onPress }) => {
   return (
     <TouchableOpacity onPress={onPress}>
       <View style={styles.test}>
