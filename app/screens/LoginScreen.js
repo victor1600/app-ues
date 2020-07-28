@@ -5,6 +5,7 @@ import FormField from "../components/forms/FormField";
 import * as Yup from "yup";
 import AppForm from "../components/forms/AppForm";
 import SubmitButton from "../components/forms/SubmitButton";
+import { useNavigation } from "@react-navigation/native";
 
 const validationSchema = Yup.object().shape({
   email: Yup.string()
@@ -14,19 +15,22 @@ const validationSchema = Yup.object().shape({
   password: Yup.string().required("Ingrese contraseña").label("Password"),
 });
 
-const handleSubmit = (value) => {
-  console.log(value);
-  if (value.email !== "ga13016@ues.edu.sv" || value.password !== "poly7659") {
-    Alert.alert(
-      "Credenciales Erróneas",
-      "Por favor inténtelo de nuevo.",
-      [{ text: "OK", onPress: () => console.log("OK Pressed") }],
-      { cancelable: false }
-    );
-  }
-};
-
 const LoginScreen = () => {
+  const navigator = useNavigation();
+  const handleSubmit = (value) => {
+    console.log(value);
+    if (value.email !== "ga13016@ues.edu.sv" || value.password !== "poly7659") {
+      Alert.alert(
+        "Credenciales Erróneas",
+        "Por favor inténtelo de nuevo.",
+        [{ text: "OK", onPress: () => console.log("OK Pressed") }],
+        { cancelable: false }
+      );
+    } else {
+      navigator.navigate("MainMenu");
+    }
+  };
+
   return (
     <Screen style={styles.container}>
       <Image style={styles.logo} source={require("../assets/minerva2.png")} />

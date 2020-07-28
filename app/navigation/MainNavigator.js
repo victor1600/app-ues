@@ -3,6 +3,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import MainMenu from "../screens/MainMenu";
 import SubjectMenu from "../screens/SubjectMenu";
 import colors from "../config/colors";
+import LoginScreen from "../screens/LoginScreen";
 
 const Stack = createStackNavigator();
 
@@ -13,6 +14,11 @@ const MainNavigator = () => (
       headerTintColor: "white",
     }}
   >
+    <Stack.Screen
+      name="Login"
+      component={LoginScreen}
+      options={{ title: "Login", headerShown: false }}
+    />
     <Stack.Screen
       name="MainMenu"
       component={MainMenu}
