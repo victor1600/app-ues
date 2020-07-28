@@ -22,7 +22,7 @@ const MainNavigator = () => (
     <Stack.Screen
       name="MainMenu"
       component={MainMenu}
-      options={{ title: "Menu principal" }}
+      options={{ title: "Menu principal", headerLeft: null }}
     />
     <Stack.Screen
       name="SubjectMenu"
