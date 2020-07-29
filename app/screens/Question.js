@@ -1,11 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { View, StyleSheet, FlatList, ScrollView } from "react-native";
 import Screen from "./Screen";
 import AppCardTemplate from "../components/AppCardTemplate";
 import { CheckBox } from "react-native-elements";
 import AppButton from "../components/AppButton";
 
+// Testing
+import ActivityIndicator from "../components/ActivityIndicator";
+import listingsApi from "../api/listings";
+import useApi from "../hooks/useApi";
+
 function Question({ route }) {
+  // const getListingsApi = useApi(listingsApi.getListings);
+
+  // useEffect(() => {
+  //   getListingsApi.request();
+  // }, []);
+
   const DATA = route.params.DATA;
   const text =
     "Nunc nec purus ac sapien posuere imperdiet. Proin sapien nisi, tristique sed lectus sed, dapibus auctor nulla. Vestibulum maximus tincidunt blandit. Pellentesque condimentum venenatis fringilla. Integer suscipit libero sem. Maecenas sed venenatis felis. Donec accumsan purus vitae magna mollis, nec eleifend purus pharetra.";
@@ -18,6 +29,7 @@ function Question({ route }) {
 
   return (
     <Screen style={styles.container}>
+      {/* <ActivityIndicator visible={getListingsApi.loading} /> */}
       <AppCardTemplate text={text} />
       <View style={styles.answersContainer}>
         <FlatList
