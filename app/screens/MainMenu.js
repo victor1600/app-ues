@@ -9,22 +9,29 @@ function MainMenu({ navigation }) {
     {
       id: 1,
       title: "Materias",
-      subTitle: "Este es el módulo de materias.",
+      subTitle: "Módulo de materias.",
       image: require("../assets/school.png"),
       targetScreen: routes.SUBJECT_MENU,
     },
     {
       id: 2,
       title: "Exámenes",
-      subTitle: "Este es el módulo de exámenes.",
+      subTitle: "Módulo de exámenes.",
       image: require("../assets/exam.png"),
       targetScreen: routes.SUBJECT_MENU,
     },
     {
       id: 3,
       title: "Estadísticas",
-      subTitle: "Este es el mídulo de estadísticas.",
+      subTitle: "Módulo de estadísticas.",
       image: require("../assets/chart.png"),
+      targetScreen: routes.SUBJECT_MENU,
+    },
+    {
+      id: 4,
+      title: "Configuracion",
+      subTitle: "Módulo de configuracion personal.",
+      image: require("../assets/settings.png"),
       targetScreen: routes.SUBJECT_MENU,
     },
   ];
