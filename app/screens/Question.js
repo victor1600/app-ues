@@ -6,9 +6,9 @@ import { CheckBox } from "react-native-elements";
 import AppButton from "../components/AppButton";
 
 // Testing
-import ActivityIndicator from "../components/ActivityIndicator";
-import listingsApi from "../api/listings";
-import useApi from "../hooks/useApi";
+// import ActivityIndicator from "../components/ActivityIndicator";
+// import listingsApi from "../api/listings";
+// import useApi from "../hooks/useApi";
 
 function Question({ route }) {
   // const getListingsApi = useApi(listingsApi.getListings);
