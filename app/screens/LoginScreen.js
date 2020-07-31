@@ -6,7 +6,7 @@ import * as Yup from "yup";
 import AppForm from "../components/forms/AppForm";
 import SubmitButton from "../components/forms/SubmitButton";
 import { useNavigation } from "@react-navigation/native";
-
+import authApi from "../api/auth";
 const validationSchema = Yup.object().shape({
   email: Yup.string()
     .required("Ingrese usuario")
@@ -17,9 +17,24 @@ const validationSchema = Yup.object().shape({
 
 const LoginScreen = () => {
   const navigator = useNavigation();
-  const handleSubmit = (value) => {
-    console.log(value);
-    if (value.email !== "victor@gmail.com" || value.password !== "prueba") {
+
+  // const handleSubmit = (value) => {
+  //   console.log(value);
+  //   if (value.email !== "victor@gmail.com" || value.password !== "prueba") {
+  //     Alert.alert(
+  //       "Credenciales Erróneas",
+  //       "Por favor inténtelo de nuevo.",
+  //       [{ text: "OK", onPress: () => console.log("OK Pressed") }],
+  //       { cancelable: false }
+  //     );
+  //   } else {
+  //     navigator.navigate("MainMenu");
+  //   }
+  // };
+
+  const handleSubmit = async ({ email, password }) => {
+    const result = await authApi.login(email, password);
+    if (!result.ok) {
       Alert.alert(
         "Credenciales Erróneas",
         "Por favor inténtelo de nuevo.",
