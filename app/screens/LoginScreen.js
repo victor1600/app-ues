@@ -45,7 +45,7 @@ const LoginScreen = () => {
     const result = await authApi.login(email, password, (progress) =>
       setProgress(progress)
     );
-    console.log(result);
+
     if (!result.ok) {
       setUploadVisible(false);
       // Alert.alert(
