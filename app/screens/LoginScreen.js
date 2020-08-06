@@ -1,12 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import { StyleSheet, Image, Alert } from "react-native";
 import Screen from "./Screen";
 import FormField from "../components/forms/FormField";
 import * as Yup from "yup";
 import AppForm from "../components/forms/AppForm";
+import ErrorMessage from "../components/forms/ErrorMessage";
 import SubmitButton from "../components/forms/SubmitButton";
 import { useNavigation } from "@react-navigation/native";
 import authApi from "../api/auth";
+import UploadScreen from "./UploadScreen";
+
 const validationSchema = Yup.object().shape({
   email: Yup.string()
     .required("Ingrese usuario")
@@ -32,22 +35,40 @@ const LoginScreen = () => {
   //   }
   // };
 
+  const [uploadVisible, setUploadVisible] = useState(false);
+  const [progress, setProgress] = useState(0);
+  const [loginFailed, setLoginFailed] = useState(false);
+
   const handleSubmit = async ({ email, password }) => {
-    const result = await authApi.login(email, password);
+    setProgress(0);
+    setUploadVisible(true);
+    const result = await authApi.login(email, password, (progress) =>
+      setProgress(progress)
+    );
+    console.log(result);
     if (!result.ok) {
-      Alert.alert(
-        "Credenciales Erróneas",
-        "Por favor inténtelo de nuevo.",
-        [{ text: "OK", onPress: () => console.log("OK Pressed") }],
-        { cancelable: false }
-      );
+      setUploadVisible(false);
+      // Alert.alert(
+      //   "Credenciales Erróneas",
+      //   "Por favor inténtelo de nuevo.",
+      //   [{ text: "OK", onPress: () => console.log("OK Pressed") }],
+      //   { cancelable: false }
+      // );
+      setLoginFailed(true);
     } else {
+      setUploadVisible(false);
+      setLoginFailed(false);
       navigator.navigate("MainMenu");
     }
   };
 
   return (
     <Screen style={styles.container}>
+      <UploadScreen
+        onDone={() => setUploadVisible(false)}
+        progress={progress}
+        visible={uploadVisible}
+      />
       <Image style={styles.logo} source={require("../assets/minerva2.png")} />
       <AppForm
         initialValues={{ email: "", password: "" }}
@@ -74,6 +95,7 @@ const LoginScreen = () => {
           secureTextEntry
           textContentType="password"
         />
+        <ErrorMessage error="Credenciales incorrectas." visible={loginFailed} />
         <SubmitButton title="Ingresar" />
       </AppForm>
     </Screen>

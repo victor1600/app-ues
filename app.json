@@ -22,7 +22,7 @@
     "web": {
       "favicon": "./assets/favicon.png"
     },
-    "description": "Proyecto sobre cuestionarios de estudio para examen de admision de Universidad de El Salvador.\n\n\nUsuario de prueba: victor@gmail.com\npassword: prueba",
+    "description": "Proyecto sobre cuestionarios de estudio para examen de admision de Universidad de El Salvador.\n\n\n- email de prueba: jorge.ovi10@gmail.com\n- password: secret",
     "githubUrl": "https://github.com/victor1600/app-ues"
   }
 }
