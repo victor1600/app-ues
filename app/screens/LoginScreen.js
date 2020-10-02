@@ -8,6 +8,7 @@ import ErrorMessage from "../components/forms/ErrorMessage";
 import SubmitButton from "../components/forms/SubmitButton";
 import { useNavigation } from "@react-navigation/native";
 import authApi from "../api/auth";
+import useAuth from "../auth/useAuth";
 import UploadScreen from "./UploadScreen";
 
 const validationSchema = Yup.object().shape({
@@ -20,21 +21,7 @@ const validationSchema = Yup.object().shape({
 
 const LoginScreen = () => {
   const navigator = useNavigation();
-
-  // const handleSubmit = (value) => {
-  //   console.log(value);
-  //   if (value.email !== "victor@gmail.com" || value.password !== "prueba") {
-  //     Alert.alert(
-  //       "Credenciales Erróneas",
-  //       "Por favor inténtelo de nuevo.",
-  //       [{ text: "OK", onPress: () => console.log("OK Pressed") }],
-  //       { cancelable: false }
-  //     );
-  //   } else {
-  //     navigator.navigate("MainMenu");
-  //   }
-  // };
-
+  const auth = useAuth();
   const [uploadVisible, setUploadVisible] = useState(false);
   const [progress, setProgress] = useState(0);
   const [loginFailed, setLoginFailed] = useState(false);
@@ -58,8 +45,10 @@ const LoginScreen = () => {
     } else {
       setUploadVisible(false);
       setLoginFailed(false);
-      navigator.navigate("MainMenu");
+      // navigator.navigate("MainMenu");
     }
+    auth.logIn("Bearer " + result.data.access_token);
+    //console.log(result.data.access_token);
   };
 
   return (

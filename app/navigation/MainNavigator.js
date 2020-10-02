@@ -16,11 +16,11 @@ const MainNavigator = () => (
       headerTintColor: "white",
     }}
   >
-    <Stack.Screen
+    {/* <Stack.Screen
       name="Login"
       component={LoginScreen}
       options={{ title: "Login", headerShown: false }}
-    />
+    /> */}
     <Stack.Screen
       name="MainMenu"
       component={MainMenu}
