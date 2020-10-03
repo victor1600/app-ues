@@ -1,5 +1,6 @@
 import React from "react";
-import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
+import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
+import { Image } from "react-native-expo-image-cache";
 import { ThemeContext } from "react-native-elements";
 
 const AppCircleIcon = ({ name = "Matemática", imageIcon, onPress }) => {
@@ -8,7 +9,12 @@ const AppCircleIcon = ({ name = "Matemática", imageIcon, onPress }) => {
       <View style={styles.test}>
         <View style={styles.container}>
           <View style={styles.circle}>
-            <Image style={styles.image} source={imageIcon} />
+            <Image
+              style={styles.image}
+              tint="light"
+              //preview={{ uri: thumbnailUrl }}
+              uri={imageIcon}
+            />
           </View>
           <Text style={styles.text}>{name}</Text>
         </View>

@@ -3,23 +3,28 @@ import {
   View,
   StyleSheet,
   Text,
-  Image,
+  //   Image,
   TouchableOpacity,
   TouchableHighlight,
   TouchableNativeFeedback,
 } from "react-native";
 import AppCardTemplate from "./AppCardTemplate";
-//import { Image } from "react-native-expo-image-cache";
-function AppMainMenuElement({ imageIcon, subTitle, title, onPress }) {
+import { Image } from "react-native-expo-image-cache";
+function AppOtherMenuElement({ imageIcon, subTitle, title, onPress }) {
   return (
     <TouchableOpacity onPress={onPress}>
       <View style={styles.container}>
         <AppCardTemplate>
           <View style={styles.rowContainer}>
-            <Image style={styles.image} source={imageIcon} />
+            <Image
+              style={styles.image}
+              tint="light"
+              //preview={{ uri: thumbnailUrl }}
+              uri={imageIcon}
+            />
             <View style={styles.textContainer}>
               <Text style={styles.title}>{title}</Text>
-              <Text style={styles.subtitle}>{subTitle}</Text>
+              {/* <Text style={styles.subtitle}>{subTitle}</Text> */}
             </View>
           </View>
         </AppCardTemplate>
@@ -41,12 +46,14 @@ const styles = StyleSheet.create({
   },
   subtitle: {},
   textContainer: {
+    // alignItems: "center",
+    justifyContent: "center",
     marginLeft: 30,
   },
   title: {
-    fontSize: 20,
+    fontSize: 23,
     fontWeight: "bold",
   },
 });
 
-export default AppMainMenuElement;
+export default AppOtherMenuElement;

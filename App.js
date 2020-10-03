@@ -13,23 +13,23 @@ import LoginScreen from "./app/screens/LoginScreen";
 import AuthNavigator from "./app/navigation/AuthNavigator";
 
 export default function App() {
-  const [user, setUser] = useState();
+  const [token, setToken] = useState();
   const [isReady, setIsReady] = useState(false);
 
-  const restoreUser = async () => {
-    const user = await authStorage.getUser();
-    if (user) setUser(user);
+  const restoreToken = async () => {
+    const token = await authStorage.getToken();
+    if (token) setToken(token);
   };
   if (!isReady)
     return (
-      <AppLoading startAsync={restoreUser} onFinish={() => setIsReady(true)} />
+      <AppLoading startAsync={restoreToken} onFinish={() => setIsReady(true)} />
     );
 
   return (
-    <AuthContext.Provider value={{ user, setUser }}>
+    <AuthContext.Provider value={{ token, setToken }}>
       <ThemeProvider theme={theme}>
         <NavigationContainer theme={navigationTheme}>
-          {user ? <MainNavigator /> : <AuthNavigator />}
+          {token ? <MainNavigator /> : <AuthNavigator />}
         </NavigationContainer>
       </ThemeProvider>
     </AuthContext.Provider>
