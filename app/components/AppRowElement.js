@@ -6,13 +6,16 @@ import colors from "../config/colors";
 function AppRowElement({ title, pdfUrl }) {
   return (
     <View style={styles.container}>
-      <AppCardTemplate>
-        <Text style={styles.title}>{title}</Text>
+      <AppCardTemplate title={title}>
+        {/* <Text style={styles.title}>{title}</Text> */}
         <View style={styles.buttonContainer}>
-          <Button title="ver pdf" onPress={Linking.openURL(pdfUrl)} />
-          <Button title="Cuestionario" color={colors.primary} />
+          <Button
+            title="abrir pdf"
+            color={colors.primary}
+            onPress={() => Linking.openURL(pdfUrl)}
+          />
+          <Button title="Preguntas" color={colors.primary} />
         </View>
-        {/* <Divider style={{ backgroundColor: "gray" }} /> */}
       </AppCardTemplate>
     </View>
   );
@@ -25,10 +28,13 @@ const styles = StyleSheet.create({
     // paddingBottom: 13,
   },
   container: {
-    // marginVertical: 10,
+    // justifyContent: "center",
+    // alignItems:'c'
   },
   title: {
     fontSize: 17,
+    // paddingLeft: 110,
+    alignItems: "center",
     // alignContent: "center",
     // justifyContent: "center",
     // marginLeft: 100,

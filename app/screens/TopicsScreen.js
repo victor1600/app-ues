@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { StyleSheet, Text, View, ScrollView } from "react-native";
-import Screen from "./Screen";
+import { StyleSheet, View } from "react-native";
+
 import useApi from "../hooks/useApi";
-import { FlatList, TouchableOpacity } from "react-native";
+import { FlatList } from "react-native";
 import urls from "../config/BaseURL";
 import topicsApi from "../api/topics";
 import AppRowElement from "../components/AppRowElement";

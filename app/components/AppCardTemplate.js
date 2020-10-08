@@ -1,6 +1,6 @@
 import React from "react";
-import { View, StyleSheet, Text } from "react-native";
-import { Card, ListItem, Button, Icon } from "react-native-elements";
+import { StyleSheet, Text } from "react-native";
+import { Card } from "react-native-elements";
 
 function AppCardTemplate({ title, text, children }) {
   return (
