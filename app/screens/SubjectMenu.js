@@ -7,19 +7,6 @@ import useApi from "../hooks/useApi";
 import subjectsApi from "../api/subjects";
 import { FlatList } from "react-native";
 import urls from "../config/BaseURL";
-// import config from "../utility/cache";
-// const subjects = [
-//   {
-//     id: "0",
-//     name: "Matemáticas",
-//     imageIcon: require("../assets/calculator.png"),
-//   },
-//   { id: "1", name: "Sociales", imageIcon: require("../assets/world.png") },
-//   { id: "2", name: "Lenguaje", imageIcon: require("../assets/lenguaje.png") },
-//   { id: "3", name: "Qumica", imageIcon: require("../assets/chemistry.png") },
-//   { id: "4", name: "Biologia", imageIcon: require("../assets/physics.png") },
-//   { id: "5", name: "Biologia", imageIcon: require("../assets/biologia.png") },
-// ];
 
 const SubjectMenu = ({ navigation }) => {
   const getSubjectsApi = useApi(subjectsApi.getSubjects);
@@ -42,9 +29,6 @@ const SubjectMenu = ({ navigation }) => {
     },
   ];
 
-  const onPress = () => {
-    navigation.navigate("Question", { DATA: DATA });
-  };
   return (
     <Screen style={styles.container}>
       <FlatList
@@ -54,7 +38,7 @@ const SubjectMenu = ({ navigation }) => {
           <AppOtherMenuElement
             title={item.name}
             imageIcon={urls.baseUrl + "/files/" + item.logo}
-            // onPress={() => navigation.navigate(item.targetScreen)}
+            onPress={() => navigation.navigate("TopicsScreen", item.id)}
           />
         )}
       />

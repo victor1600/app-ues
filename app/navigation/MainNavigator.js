@@ -3,10 +3,9 @@ import { createStackNavigator } from "@react-navigation/stack";
 import MainMenu from "../screens/MainMenu";
 import SubjectMenu from "../screens/SubjectMenu";
 import colors from "../config/colors";
-import LoginScreen from "../screens/LoginScreen";
 import Question from "../screens/Question";
 import Exam from "../screens/Exam";
-
+import TopicsScreen from "../screens/TopicsScreen";
 const Stack = createStackNavigator();
 
 const MainNavigator = () => (
@@ -35,6 +34,11 @@ const MainNavigator = () => (
       name="SubjectMenu"
       component={SubjectMenu}
       options={{ title: "Materias" }}
+    />
+    <Stack.Screen
+      name="TopicsScreen"
+      component={TopicsScreen}
+      options={{ title: "Temas" }}
     />
     <Stack.Screen
       name="Question"

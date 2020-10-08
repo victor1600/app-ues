@@ -5,8 +5,6 @@ import {
   Text,
   //   Image,
   TouchableOpacity,
-  TouchableHighlight,
-  TouchableNativeFeedback,
 } from "react-native";
 import AppCardTemplate from "./AppCardTemplate";
 import { Image } from "react-native-expo-image-cache";
