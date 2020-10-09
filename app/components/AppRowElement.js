@@ -3,7 +3,7 @@ import { View, StyleSheet, Text, Button, Linking } from "react-native";
 import AppCardTemplate from "./AppCardTemplate";
 import colors from "../config/colors";
 
-function AppRowElement({ title, pdfUrl }) {
+function AppRowElement({ title, pdfUrl, onPress }) {
   return (
     <View style={styles.container}>
       <AppCardTemplate title={title}>
@@ -14,7 +14,7 @@ function AppRowElement({ title, pdfUrl }) {
             color={colors.primary}
             onPress={() => Linking.openURL(pdfUrl)}
           />
-          <Button title="Preguntas" color={colors.primary} />
+          <Button title="Preguntas" color={colors.primary} onPress={onPress} />
         </View>
       </AppCardTemplate>
     </View>

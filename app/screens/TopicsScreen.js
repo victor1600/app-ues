@@ -6,15 +6,31 @@ import { FlatList } from "react-native";
 import urls from "../config/BaseURL";
 import topicsApi from "../api/topics";
 import AppRowElement from "../components/AppRowElement";
-function TopicsScreen({ route }) {
+function TopicsScreen({ route, navigation }) {
   const subjectId = route.params;
   const getTopicsApi = useApi(topicsApi.setEndpoint(subjectId.toString()));
   useEffect(() => {
     getTopicsApi.request();
   }, []);
-  //   console.log(getTopicsApi.data);
+
+  // JUST FOR TESTING
+  const DATA = [
+    {
+      id: "bd7acbea-c1b1-46c2-aed5-3ad53abb28ba",
+      title: "Respuesta A",
+    },
+    {
+      id: "3ac68afc-c605-48d3-a4f8-fbd91aa97f63",
+      title: "Respuesta B",
+    },
+    {
+      id: "58694a0f-3da1-471f-bd96-145571e29d72",
+      title: "Respuesta C",
+    },
+  ];
+
   const onPress = () => {
-    navigation.navigate("TopicsScreen");
+    navigation.navigate("Question", { DATA: DATA });
     // navigation.navigate("TopicsScreen", { DATA: DATA });
   };
   return (
@@ -26,6 +42,7 @@ function TopicsScreen({ route }) {
           <AppRowElement
             title={item.topic_title}
             pdfUrl={urls.baseUrl + "/files/" + item.document}
+            onPress={onPress}
           />
         )}
       />
